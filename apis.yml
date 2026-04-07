@@ -8,9 +8,9 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Cloud Cost
-  - Terraform
-  - Infrastructure
   - FinOps
+  - Infrastructure
+  - Terraform
 url: >-
   https://raw.githubusercontent.com/api-evangelist/infracost/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -26,8 +26,8 @@ apis:
     humanURL: https://www.infracost.io/docs/integrations/infracost_api/
     tags:
       - Cloud Cost
-      - Pricing
       - Infrastructure
+      - Pricing
     properties:
       - type: Documentation
         url: https://www.infracost.io/docs/integrations/infracost_api/
