@@ -5,9 +5,9 @@ Infracost is a cloud cost estimation tool for Terraform that shows infrastructur
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consuming
+- **Access:** 3rd-Party
 
 ## Tags:
 
@@ -15,8 +15,8 @@ Infracost is a cloud cost estimation tool for Terraform that shows infrastructur
 
 ## Timestamps
 
-- **Created:** 2026-03-16 
-- **Modified:** 2026-03-16 
+- **Created:** 2026-03-16
+- **Modified:** 2026-04-28
 
 ## APIs
 
@@ -25,15 +25,17 @@ The Infracost Cloud Pricing API provides programmatic access to cloud pricing da
 
 **Human URL:** [https://www.infracost.io/docs/integrations/infracost_api/](https://www.infracost.io/docs/integrations/infracost_api/)
 
+**Base URL:** https://pricing.api.infracost.io
 
 #### Tags:
 
- - Cloud Cost, Pricing, Infrastructure
+ - Cloud Cost, Pricing, Infrastructure, Terraform
 
 #### Properties
 
 - [Documentation](https://www.infracost.io/docs/integrations/infracost_api/)
 - [Getting Started](https://www.infracost.io/docs/)
+- [OpenAPI](openapi/infracost-openapi.yml)
 
 ## Common Properties
 
