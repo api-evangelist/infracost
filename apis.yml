@@ -33,7 +33,7 @@ apis:
     properties:
       - type: Documentation
         url: https://www.infracost.io/docs/integrations/infracost_api/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://www.infracost.io/docs/
       - type: OpenAPI
         url: openapi/infracost-openapi.yml
@@ -42,7 +42,7 @@ common:
     url: https://www.infracost.io/
   - type: Documentation
     url: https://www.infracost.io/docs/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/infracost
   - type: Support
     url: https://www.infracost.io/community/
