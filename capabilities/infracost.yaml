@@ -1,25 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
   label: Infracost Cloud Pricing API
-  description: The Infracost Cloud Pricing API provides programmatic access to cloud cost estimation for Terraform plans.
-    The Plan JSON API exposes breakdown and diff endpoints used by the Infracost CLI and CI/CD integrations to surface cost
-    breakdowns and changes directly inside pull requests.
+  description: 'Infracost Cloud Pricing API. 2 operations. Lead operation: Generate Cost Breakdown. Self-contained Naftiko
+    capability covering one Infracost business surface.'
   tags:
   - Infracost
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Infracost Cloud Pricing API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    INFRACOST_API_KEY: INFRACOST_API_KEY
 capability:
   consumes:
   - type: http
     namespace: infracost
     baseUri: https://pricing.api.infracost.io
-    description: Infracost Cloud Pricing API HTTP API.
-    authentication:
-      type: apikey
-      in: header
-      name: x-api-key
-      value: '{{INFRACOST_TOKEN}}'
+    description: Infracost Cloud Pricing API business capability. Self-contained, no shared references.
     resources:
     - name: breakdown
       path: /breakdown
@@ -32,6 +30,12 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: diff
       path: /diff
       operations:
@@ -43,59 +47,78 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.INFRACOST_API_KEY}}'
+      placement: header
   exposes:
   - type: rest
-    port: 8080
     namespace: infracost-rest
-    description: REST adapter for Infracost Cloud Pricing API.
+    port: 8080
+    description: REST adapter for Infracost Cloud Pricing API. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
     resources:
-    - path: /breakdown
-      name: generatebreakdown
+    - path: /v1/breakdown
+      name: breakdown
+      description: REST surface for breakdown.
       operations:
       - method: POST
         name: generatebreakdown
         description: Generate Cost Breakdown
         call: infracost.generatebreakdown
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /diff
-      name: generatediff
+    - path: /v1/diff
+      name: diff
+      description: REST surface for diff.
       operations:
       - method: POST
         name: generatediff
         description: Generate Cost Diff
         call: infracost.generatediff
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
-    port: 9090
     namespace: infracost-mcp
+    port: 9090
     transport: http
-    description: MCP adapter for Infracost Cloud Pricing API for AI agent use.
+    description: MCP adapter for Infracost Cloud Pricing API. One tool per consumed operation, routed inline through this
+      capability's consumes block.
     tools:
-    - name: generatebreakdown
+    - name: generate-cost-breakdown
       description: Generate Cost Breakdown
       hints:
         readOnly: false
         destructive: false
         idempotent: false
       call: infracost.generatebreakdown
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: generatediff
+    - name: generate-cost-diff
       description: Generate Cost Diff
       hints:
         readOnly: false
         destructive: false
         idempotent: false
       call: infracost.generatediff
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-binds:
-- namespace: env
-  keys:
-    INFRACOST_TOKEN: INFRACOST_TOKEN
