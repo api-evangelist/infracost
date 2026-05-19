@@ -14,7 +14,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/infracost/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-28'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: infracost:infracost-api
@@ -46,6 +46,9 @@ common:
     url: https://github.com/infracost
   - type: Support
     url: https://www.infracost.io/community/
+  - name: Agent Skills
+    url: https://github.com/infracost/agent-skills
+    type: AgentSkill
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
