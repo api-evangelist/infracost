@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Infracost Cloud Pricing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generate Cost Breakdown",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://pricing.api.infracost.io/breakdown",
+        "body": {
+          "type": "multipart-form",
+          "data": [
+            {
+              "name": "path",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "usage-file",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "format",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "fields",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "show-skipped",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "no-color",
+              "type": "text",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "docs": "Generates a detailed cost breakdown for a Terraform plan JSON file, returning resource-level monthly and hourly costs. Output formats include table, JSON, and HTML."
+    },
+    {
+      "info": {
+        "name": "Generate Cost Diff",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://pricing.api.infracost.io/diff",
+        "body": {
+          "type": "multipart-form",
+          "data": [
+            {
+              "name": "path",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "usage-file",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "show-skipped",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "no-color",
+              "type": "text",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "docs": "Generates a git-style diff that shows cost changes between current and planned infrastructure states for a Terraform plan JSON file."
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,718 @@
+{
+  "item": [
+    {
+      "id": "0d64c811-37dd-4bf4-93a4-a7851f4eaba3",
+      "name": "Generate Cost Breakdown",
+      "request": {
+        "name": "Generate Cost Breakdown",
+        "description": {
+          "content": "Generates a detailed cost breakdown for a Terraform plan JSON file, returning resource-level monthly and hourly costs. Output formats include table, JSON, and HTML.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "breakdown"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "path",
+              "type": "file",
+              "description": "(Required) Terraform plan JSON file"
+            },
+            {
+              "key": "usage-file",
+              "type": "file",
+              "description": "Optional usage file for usage-based resources"
+            },
+            {
+              "key": "format",
+              "value": "table",
+              "type": "text",
+              "description": " (This can only be one of table,json,html)"
+            },
+            {
+              "key": "fields",
+              "value": "<string>",
+              "type": "text",
+              "description": "Comma-separated list of fields to include"
+            },
+            {
+              "key": "show-skipped",
+              "value": "<boolean>",
+              "type": "text",
+              "description": "Show unsupported and free resources"
+            },
+            {
+              "key": "no-color",
+              "value": "<boolean>",
+              "type": "text",
+              "description": "Disable colored output for CI/CD environments"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "773240b0-8e2f-43d1-8c58-561337dbae58",
+          "name": "Cost breakdown generated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of table,json,html)",
+                    "type": "text/plain"
+                  },
+                  "key": "format",
+                  "value": "table",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Comma-separated list of fields to include",
+                    "type": "text/plain"
+                  },
+                  "key": "fields",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Show unsupported and free resources",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Disable colored output for CI/CD environments",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"version\": \"string\",\n  \"currency\": \"string\",\n  \"projects\": [\n    {\n      \"name\": \"string\",\n      \"metadata\": {},\n      \"pastBreakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"breakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"diff\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"metadata\": {},\n      \"pastBreakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"breakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"diff\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_3\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      }\n    }\n  ],\n  \"totalHourlyCost\": \"string\",\n  \"totalMonthlyCost\": \"string\",\n  \"pastTotalHourlyCost\": \"string\",\n  \"pastTotalMonthlyCost\": \"string\",\n  \"diffTotalHourlyCost\": \"string\",\n  \"diffTotalMonthlyCost\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d7db9f60-5054-47e6-b584-3294800c7436",
+          "name": "Invalid request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of table,json,html)",
+                    "type": "text/plain"
+                  },
+                  "key": "format",
+                  "value": "table",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Comma-separated list of fields to include",
+                    "type": "text/plain"
+                  },
+                  "key": "fields",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Show unsupported and free resources",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Disable colored output for CI/CD environments",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "f561c2de-4d7d-4a55-897d-ad5529d67955",
+          "name": "Missing or invalid API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of table,json,html)",
+                    "type": "text/plain"
+                  },
+                  "key": "format",
+                  "value": "table",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Comma-separated list of fields to include",
+                    "type": "text/plain"
+                  },
+                  "key": "fields",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Show unsupported and free resources",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Disable colored output for CI/CD environments",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "08ca6484-ed9a-4789-bf28-e1e2a6647655",
+      "name": "Generate Cost Diff",
+      "request": {
+        "name": "Generate Cost Diff",
+        "description": {
+          "content": "Generates a git-style diff that shows cost changes between current and planned infrastructure states for a Terraform plan JSON file.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "diff"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "path",
+              "type": "file",
+              "description": "(Required) Terraform plan JSON file"
+            },
+            {
+              "key": "usage-file",
+              "type": "file",
+              "description": "Optional usage file for usage-based resources"
+            },
+            {
+              "key": "show-skipped",
+              "value": "<boolean>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "no-color",
+              "value": "<boolean>",
+              "type": "text",
+              "description": ""
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "55d8d5dd-29c1-439b-afde-4bd3f0d90296",
+          "name": "Cost diff generated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "diff"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"version\": \"string\",\n  \"currency\": \"string\",\n  \"projects\": [\n    {\n      \"name\": \"string\",\n      \"metadata\": {},\n      \"pastBreakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"breakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"diff\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"metadata\": {},\n      \"pastBreakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"breakdown\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      },\n      \"diff\": {\n        \"resources\": [\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"resourceType\": \"string\",\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {},\n            \"hourlyCost\": \"string\",\n            \"monthlyCost\": \"string\",\n            \"costComponents\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"subresources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"totalHourlyCost\": \"string\",\n        \"totalMonthlyCost\": \"string\"\n      }\n    }\n  ],\n  \"diffTotalHourlyCost\": \"string\",\n  \"diffTotalMonthlyCost\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "67f78c02-f667-42e5-b2f2-93a960453695",
+          "name": "Invalid request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "diff"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "509c5bc6-23a9-40c5-b57b-28ad1e45dd30",
+          "name": "Missing or invalid API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "diff"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Terraform plan JSON file",
+                    "type": "text/plain"
+                  },
+                  "key": "path",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Optional usage file for usage-based resources",
+                    "type": "text/plain"
+                  },
+                  "key": "usage-file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "show-skipped",
+                  "value": "<boolean>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "no-color",
+                  "value": "<boolean>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pricing.api.infracost.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f1af99ee-74af-43f7-a32a-51bc4da8e73a",
+    "name": "Infracost Cloud Pricing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Infracost Cloud Pricing API provides programmatic access to cloud cost estimation for Terraform plans. The Plan JSON API exposes breakdown and diff endpoints used by the Infracost CLI and CI/CD integrations to surface cost breakdowns and changes directly inside pull requests.\n\nContact Support:\n Name: Infracost",
+      "type": "text/plain"
+    }
+  }
+}
