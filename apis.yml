@@ -47,7 +47,7 @@ common:
     url: https://www.infracost.io/community/
   - name: Agent Skills
     url: https://github.com/infracost/agent-skills
-    type: AgentSkill
+    type: AgentSkills
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
