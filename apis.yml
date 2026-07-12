@@ -35,6 +35,12 @@ apis:
       - type: OpenAPI
         url: openapi/infracost-openapi.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/infracost-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/infracost-domain-security.yml
+  - type: Authentication
+    url: authentication/infracost-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/infracost
   - type: Website
@@ -48,6 +54,8 @@ common:
   - name: Agent Skills
     url: https://github.com/infracost/agent-skills
     type: AgentSkills
+  - url: https://www.infracost.io/blog/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
