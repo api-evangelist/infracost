@@ -35,6 +35,8 @@ apis:
       - type: OpenAPI
         url: openapi/infracost-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/infracost-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/infracost-vulnerability-disclosure.yml
   - type: DomainSecurity
