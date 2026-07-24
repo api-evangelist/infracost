@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Infracost Cloud Pricing Breakdown Diff API
+  description: The Infracost Cloud Pricing API provides programmatic access to cloud cost estimation for Terraform plans. The Plan JSON API exposes breakdown and diff endpoints used by the Infracost CLI and CI/CD integrations to surface cost breakdowns and changes directly inside pull requests.
+  version: 1.0.0
+  contact:
+    name: Infracost
+    url: https://www.infracost.io/
+  license:
+    name: Apache 2.0
+    url: https://github.com/infracost/infracost/blob/master/LICENSE
+servers:
+- url: https://pricing.api.infracost.io
+  description: Infracost Cloud Pricing API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Diff
+paths:
+  /diff:
+    post:
+      summary: Generate Cost Diff
+      description: Generates a git-style diff that shows cost changes between current and planned infrastructure states for a Terraform plan JSON file.
+      operationId: generateDiff
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - path
+              properties:
+                path:
+                  type: string
+                  format: binary
+                  description: Terraform plan JSON file
+                usage-file:
+                  type: string
+                  format: binary
+                  description: Optional usage file for usage-based resources
+                show-skipped:
+                  type: boolean
+                no-color:
+                  type: boolean
+      responses:
+        '200':
+          description: Cost diff generated
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Diff'
+        '400':
+          description: Invalid request
+        '401':
+          description: Missing or invalid API key
+      tags:
+      - Diff
+components:
+  schemas:
+    ResourceBreakdown:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        totalHourlyCost:
+          type: string
+        totalMonthlyCost:
+          type: string
+    CostComponent:
+      type: object
+      properties:
+        name:
+          type: string
+        unit:
+          type: string
+        hourlyQuantity:
+          type: string
+        monthlyQuantity:
+          type: string
+        price:
+          type: string
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
+    Diff:
+      type: object
+      properties:
+        version:
+          type: string
+        currency:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        diffTotalHourlyCost:
+          type: string
+        diffTotalMonthlyCost:
+          type: string
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        pastBreakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        breakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        diff:
+          $ref: '#/components/schemas/ResourceBreakdown'
+    Resource:
+      type: object
+      properties:
+        name:
+          type: string
+        resourceType:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        metadata:
+          type: object
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
+        costComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostComponent'
+        subresources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Infracost API key
