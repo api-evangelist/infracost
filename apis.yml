@@ -4,7 +4,20 @@ description: >-
   Infracost is a cloud cost estimation tool for Terraform that shows infrastructure cost breakdowns and diffs directly
   in pull requests. Infracost provides an API for programmatic access to cloud pricing data and cost estimates.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/infracost.png
 tags:
   - Cloud Cost
   - FinOps
@@ -15,25 +28,34 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: infracost:infracost-api
-    name: Infracost Cloud Pricing API
-    description: >-
-      The Infracost Cloud Pricing API provides programmatic access to cloud pricing data for infrastructure cost
-      estimation. It powers the Infracost CLI and CI/CD integrations for showing cost breakdowns in pull requests.
-    humanURL: https://www.infracost.io/docs/integrations/infracost_api/
-    baseURL: https://pricing.api.infracost.io
-    tags:
-      - Cloud Cost
-      - Infrastructure
-      - Pricing
-      - Terraform
-    properties:
-      - type: Documentation
-        url: https://www.infracost.io/docs/integrations/infracost_api/
-      - type: GettingStarted
-        url: https://www.infracost.io/docs/
-      - type: OpenAPI
-        url: openapi/infracost-openapi.yml
+- aid: infracost:infracost-breakdown-api
+  name: Infracost Breakdown API
+  description: The Breakdown API from Infracost — 1 operation(s) for breakdown.
+  humanURL: https://www.infracost.io/docs/integrations/infracost_api/
+  baseURL: https://pricing.api.infracost.io
+  tags:
+  - Breakdown
+  properties:
+  - type: OpenAPI
+    url: openapi/infracost-breakdown-api-openapi.yml
+  - type: Documentation
+    url: https://www.infracost.io/docs/integrations/infracost_api/
+  - type: GettingStarted
+    url: https://www.infracost.io/docs/
+- aid: infracost:infracost-diff-api
+  name: Infracost Diff API
+  description: The Diff API from Infracost — 1 operation(s) for diff.
+  humanURL: https://www.infracost.io/docs/integrations/infracost_api/
+  baseURL: https://pricing.api.infracost.io
+  tags:
+  - Diff
+  properties:
+  - type: OpenAPI
+    url: openapi/infracost-diff-api-openapi.yml
+  - type: Documentation
+    url: https://www.infracost.io/docs/integrations/infracost_api/
+  - type: GettingStarted
+    url: https://www.infracost.io/docs/
 common:
   - type: AgenticAccess
     url: agentic-access/infracost-agentic-access.yml
