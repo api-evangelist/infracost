@@ -1,0 +1,16 @@
+{
+  "provider": "infracost",
+  "sources": [
+    "infracost-breakdown-api-openapi.yml",
+    "infracost-diff-api-openapi.yml"
+  ],
+  "outputs": [
+    "infracost-breakdown-api-openapi.yml",
+    "infracost-diff-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
