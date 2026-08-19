@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Infracost Cloud Pricing Breakdown API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Breakdown",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Cost Breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pricing.api.infracost.io/breakdown",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "path",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "usage-file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "format",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "fields",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "show-skipped",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "no-color",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generates a detailed cost breakdown for a Terraform plan JSON file, returning resource-level monthly and hourly costs. Output formats include table, JSON, and HTML."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

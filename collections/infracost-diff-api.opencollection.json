@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Infracost Cloud Pricing Breakdown Diff API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Diff",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Cost Diff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pricing.api.infracost.io/diff",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "path",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "usage-file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "show-skipped",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "no-color",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generates a git-style diff that shows cost changes between current and planned infrastructure states for a Terraform plan JSON file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
