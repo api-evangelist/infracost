@@ -4,6 +4,17 @@ description: >-
   Infracost is a cloud cost estimation tool for Terraform that shows infrastructure cost breakdowns and diffs directly
   in pull requests. Infracost provides an API for programmatic access to cloud pricing data and cost estimates.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
