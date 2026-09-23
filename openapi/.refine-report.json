@@ -1,8 +1,7 @@
 {
   "provider": "infracost",
   "sources": [
-    "infracost-breakdown-api-openapi.yml",
-    "infracost-diff-api-openapi.yml"
+    "_original/infracost-openapi.yml"
   ],
   "outputs": [
     "infracost-breakdown-api-openapi.yml",
@@ -11,6 +10,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "infracost-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "infracost-openapi.yml: tagged paths POST /breakdown -> Breakdown",
+    "infracost-openapi.yml: tagged paths POST /diff -> Diff",
+    "infracost-openapi.yml: declared missing tag: Breakdown",
+    "infracost-openapi.yml: declared missing tag: Diff",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "infracost-breakdown-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "infracost-diff-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

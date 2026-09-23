@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Infracost Cloud Pricing Breakdown API
   description: The Infracost Cloud Pricing API provides programmatic access to cloud cost estimation for Terraform plans. The Plan JSON API exposes breakdown and diff endpoints used by the Infracost CLI and CI/CD integrations to surface cost breakdowns and changes directly inside pull requests.
@@ -76,17 +76,6 @@ paths:
       - Breakdown
 components:
   schemas:
-    ResourceBreakdown:
-      type: object
-      properties:
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/Resource'
-        totalHourlyCost:
-          type: string
-        totalMonthlyCost:
-          type: string
     Breakdown:
       type: object
       properties:
@@ -110,6 +99,19 @@ components:
           type: string
         diffTotalMonthlyCost:
           type: string
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        pastBreakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        breakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        diff:
+          $ref: '#/components/schemas/ResourceBreakdown'
     CostComponent:
       type: object
       properties:
@@ -127,19 +129,6 @@ components:
           type: string
         monthlyCost:
           type: string
-    Project:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-        pastBreakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        breakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        diff:
-          $ref: '#/components/schemas/ResourceBreakdown'
     Resource:
       type: object
       properties:
@@ -165,6 +154,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
+    ResourceBreakdown:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        totalHourlyCost:
+          type: string
+        totalMonthlyCost:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
