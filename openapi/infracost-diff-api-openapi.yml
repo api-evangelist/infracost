@@ -76,6 +76,31 @@ components:
           type: string
         diffTotalMonthlyCost:
           type: string
+    Resource:
+      type: object
+      properties:
+        name:
+          type: string
+        resourceType:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        metadata:
+          type: object
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
+        costComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostComponent'
+        subresources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
     Project:
       type: object
       properties:
@@ -106,31 +131,6 @@ components:
           type: string
         monthlyCost:
           type: string
-    Resource:
-      type: object
-      properties:
-        name:
-          type: string
-        resourceType:
-          type: string
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-        metadata:
-          type: object
-        hourlyCost:
-          type: string
-        monthlyCost:
-          type: string
-        costComponents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CostComponent'
-        subresources:
-          type: array
-          items:
-            $ref: '#/components/schemas/Resource'
     ResourceBreakdown:
       type: object
       properties:

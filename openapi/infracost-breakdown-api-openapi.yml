@@ -76,59 +76,6 @@ paths:
       - Breakdown
 components:
   schemas:
-    Breakdown:
-      type: object
-      properties:
-        version:
-          type: string
-        currency:
-          type: string
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        totalHourlyCost:
-          type: string
-        totalMonthlyCost:
-          type: string
-        pastTotalHourlyCost:
-          type: string
-        pastTotalMonthlyCost:
-          type: string
-        diffTotalHourlyCost:
-          type: string
-        diffTotalMonthlyCost:
-          type: string
-    Project:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-        pastBreakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        breakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        diff:
-          $ref: '#/components/schemas/ResourceBreakdown'
-    CostComponent:
-      type: object
-      properties:
-        name:
-          type: string
-        unit:
-          type: string
-        hourlyQuantity:
-          type: string
-        monthlyQuantity:
-          type: string
-        price:
-          type: string
-        hourlyCost:
-          type: string
-        monthlyCost:
-          type: string
     Resource:
       type: object
       properties:
@@ -154,6 +101,59 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        pastBreakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        breakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        diff:
+          $ref: '#/components/schemas/ResourceBreakdown'
+    Breakdown:
+      type: object
+      properties:
+        version:
+          type: string
+        currency:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        totalHourlyCost:
+          type: string
+        totalMonthlyCost:
+          type: string
+        pastTotalHourlyCost:
+          type: string
+        pastTotalMonthlyCost:
+          type: string
+        diffTotalHourlyCost:
+          type: string
+        diffTotalMonthlyCost:
+          type: string
+    CostComponent:
+      type: object
+      properties:
+        name:
+          type: string
+        unit:
+          type: string
+        hourlyQuantity:
+          type: string
+        monthlyQuantity:
+          type: string
+        price:
+          type: string
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
     ResourceBreakdown:
       type: object
       properties:
