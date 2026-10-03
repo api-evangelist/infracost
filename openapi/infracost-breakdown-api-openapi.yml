@@ -76,44 +76,6 @@ paths:
       - Breakdown
 components:
   schemas:
-    Resource:
-      type: object
-      properties:
-        name:
-          type: string
-        resourceType:
-          type: string
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-        metadata:
-          type: object
-        hourlyCost:
-          type: string
-        monthlyCost:
-          type: string
-        costComponents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CostComponent'
-        subresources:
-          type: array
-          items:
-            $ref: '#/components/schemas/Resource'
-    Project:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-        pastBreakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        breakdown:
-          $ref: '#/components/schemas/ResourceBreakdown'
-        diff:
-          $ref: '#/components/schemas/ResourceBreakdown'
     Breakdown:
       type: object
       properties:
@@ -165,6 +127,44 @@ components:
           type: string
         totalMonthlyCost:
           type: string
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        pastBreakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        breakdown:
+          $ref: '#/components/schemas/ResourceBreakdown'
+        diff:
+          $ref: '#/components/schemas/ResourceBreakdown'
+    Resource:
+      type: object
+      properties:
+        name:
+          type: string
+        resourceType:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        metadata:
+          type: object
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
+        costComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostComponent'
+        subresources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
