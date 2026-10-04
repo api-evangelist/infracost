@@ -69,6 +69,9 @@ apis:
   - type: GettingStarted
     url: https://www.infracost.io/docs/
 common:
+  - type: CapabilityMap
+    url: capabilities/infracost-capability-edges.yml
+    name: Infracost Business Capability Map
   - type: AgenticAccess
     url: agentic-access/infracost-agentic-access.yml
   - type: VulnerabilityDisclosure
