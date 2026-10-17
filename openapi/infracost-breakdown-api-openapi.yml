@@ -76,6 +76,23 @@ paths:
       - Breakdown
 components:
   schemas:
+    CostComponent:
+      type: object
+      properties:
+        name:
+          type: string
+        unit:
+          type: string
+        hourlyQuantity:
+          type: string
+        monthlyQuantity:
+          type: string
+        price:
+          type: string
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
     Resource:
       type: object
       properties:
@@ -101,29 +118,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
-    Breakdown:
-      type: object
-      properties:
-        version:
-          type: string
-        currency:
-          type: string
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        totalHourlyCost:
-          type: string
-        totalMonthlyCost:
-          type: string
-        pastTotalHourlyCost:
-          type: string
-        pastTotalMonthlyCost:
-          type: string
-        diffTotalHourlyCost:
-          type: string
-        diffTotalMonthlyCost:
-          type: string
     ResourceBreakdown:
       type: object
       properties:
@@ -148,22 +142,28 @@ components:
           $ref: '#/components/schemas/ResourceBreakdown'
         diff:
           $ref: '#/components/schemas/ResourceBreakdown'
-    CostComponent:
+    Breakdown:
       type: object
       properties:
-        name:
+        version:
           type: string
-        unit:
+        currency:
           type: string
-        hourlyQuantity:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        totalHourlyCost:
           type: string
-        monthlyQuantity:
+        totalMonthlyCost:
           type: string
-        price:
+        pastTotalHourlyCost:
           type: string
-        hourlyCost:
+        pastTotalMonthlyCost:
           type: string
-        monthlyCost:
+        diffTotalHourlyCost:
+          type: string
+        diffTotalMonthlyCost:
           type: string
   securitySchemes:
     ApiKeyAuth:

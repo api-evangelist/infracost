@@ -61,6 +61,23 @@ paths:
       - Diff
 components:
   schemas:
+    CostComponent:
+      type: object
+      properties:
+        name:
+          type: string
+        unit:
+          type: string
+        hourlyQuantity:
+          type: string
+        monthlyQuantity:
+          type: string
+        price:
+          type: string
+        hourlyCost:
+          type: string
+        monthlyCost:
+          type: string
     Resource:
       type: object
       properties:
@@ -110,23 +127,6 @@ components:
           $ref: '#/components/schemas/ResourceBreakdown'
         diff:
           $ref: '#/components/schemas/ResourceBreakdown'
-    CostComponent:
-      type: object
-      properties:
-        name:
-          type: string
-        unit:
-          type: string
-        hourlyQuantity:
-          type: string
-        monthlyQuantity:
-          type: string
-        price:
-          type: string
-        hourlyCost:
-          type: string
-        monthlyCost:
-          type: string
     Diff:
       type: object
       properties:
