@@ -1,4 +1,4 @@
-# Infracost (infracost)
+# Infracost
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,58 +66,129 @@
 
 Infracost is a cloud cost estimation tool for Terraform that shows infrastructure cost breakdowns and diffs directly in pull requests. Infracost provides an API for programmatic access to cloud pricing data and cost estimates.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/infracost/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/infracost/refs/heads/main/apis.yml)
+**Areas:** Cloud Cost · FinOps · Infrastructure · Terraform
 
-## Scope
+## Infracost on APIs.io
 
-- **Type:** Index
+Everything profiled for Infracost is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/infracost/](https://apis.io/providers/infracost/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Cloud Cost
-- FinOps
-- Infrastructure
-- Terraform
+- [Infracost Breakdown API](https://apis.io/apis/infracost/infracost-breakdown-api/) — The Breakdown API from Infracost — 1 operation(s) for breakdown.
+- [Infracost Diff API](https://apis.io/apis/infracost/infracost-diff-api/) — The Diff API from Infracost — 1 operation(s) for diff.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agent skills (4)
 
-### Infracost Cloud Pricing API
+Agent skills built on the API.
 
-The Infracost Cloud Pricing API provides programmatic access to cloud pricing data for infrastructure cost estimation. It powers the Infracost CLI and CI/CD integrations for showing cost breakdowns in pull requests.
+- [iac-generation](https://apis.io/agent-skills/infracost/iac-generation/)
+- [infracost](https://apis.io/agent-skills/infracost/infracost/)
+- [infracost-price-lookup](https://apis.io/agent-skills/infracost/infracost-price-lookup/)
+- [infracost-scan](https://apis.io/agent-skills/infracost/infracost-scan/)
 
-- **Human URL:** [https://www.infracost.io/docs/integrations/infracost_api/](https://www.infracost.io/docs/integrations/infracost_api/)
-- **Base URL:** `https://pricing.api.infracost.io`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Cloud Cost
-- Infrastructure
-- Pricing
-- Terraform
+- [Infracost Agentic Access](https://apis.io/agentic-access/infracost/infracost-agentic-access/)
 
-#### Properties
+#### Collections (3)
 
-- [Documentation](https://www.infracost.io/docs/integrations/infracost_api/)
-- [Getting Started](https://www.infracost.io/docs/)
-- [OpenAPI](openapi/infracost-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/infracost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/infracost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Infracost Cloud Pricing API](https://apis.io/collections/infracost/open-infracost/)
+- [Infracost Cloud Pricing Breakdown API](https://apis.io/collections/infracost/open-infracost-breakdown-api/)
+- [Infracost Cloud Pricing Breakdown Diff API](https://apis.io/collections/infracost/open-infracost-diff-api/)
 
-- [LinkedIn](https://www.linkedin.com/company/infracost)
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Infracost Authentication](https://apis.io/security/infracost/infracost-authentication/)
+- [Infracost Domain Security](https://apis.io/security/infracost/infracost-domain-security/)
+- [Infracost Vulnerability Disclosure](https://apis.io/security/infracost/infracost-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Infracost Plans Pricing](https://apis.io/plans/infracost/infracost-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Infracost Rate Limits](https://apis.io/rate-limits/infracost/infracost-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Infracost Finops](https://apis.io/finops/infracost/infracost-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.infracost.io/)
 - [Documentation](https://www.infracost.io/docs/)
-- [GitHub Organization](https://github.com/infracost)
 - [Support](https://www.infracost.io/community/)
-- [Agent Skill](https://github.com/infracost/agent-skills)
+- [Blog](https://www.infracost.io/blog/)
+- [GitHub](https://github.com/infracost)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 52.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 42.1 |
+| Access clarity | 7.9 |
+
+**Agent readiness 21.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/infracost/](https://apis.io/providers/infracost/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Infracost: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/infracost/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
